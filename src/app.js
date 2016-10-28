@@ -11,7 +11,7 @@ const App = React.createClass({
 			<div className={styles.wrapper}>
 				This is my app!
 				<h1>
-				<i className="fa fa-start"></i>
+				<i className="fa fa-star"></i>
 				Environment: {__NODE_ENV__}</h1>
 			</div>
 		)
