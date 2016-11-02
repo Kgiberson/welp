@@ -1,6 +1,7 @@
 // Karma configuration
 // Generated on Fri Oct 28 2016 11:00:45 GMT-0700 (PDT)
 
+var path = require('path');
 var webpackConfig = require('./webpack.config');
 
 module.exports = function(config) {
@@ -25,7 +26,8 @@ module.exports = function(config) {
         'karma-chai',
         'karma-webpack',
         'karma-phantomjs-launcher',
-        'karma-spec-reporter'
+        'karma-spec-reporter',
+        'karma-sourcemap-loader'
     ],
 
     // list of files to exclude
@@ -37,6 +39,10 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
         'tests.webpack.js': ['webpack', 'sourcemap']
+    },
+    webpack: webpackConfig,
+    webpackServer: {
+        noInfo: true
     },
 
 
@@ -60,7 +66,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+    // autoWatch: true,
 
 
     // start these browsers
@@ -70,10 +76,10 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    // singleRun: false,
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    // concurrency: Infinity
   })
 }
