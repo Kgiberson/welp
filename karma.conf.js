@@ -1,6 +1,7 @@
 // Karma configuration
 // Generated on Fri Oct 28 2016 11:00:45 GMT-0700 (PDT)
 
+var argv = require('yargs').argv;
 var path = require('path');
 var webpackConfig = require('./webpack.config');
 
@@ -76,7 +77,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    // singleRun: false,
+    singleRun: !argv.watch,
 
     // Concurrency level
     // how many browser should be started simultaneous
