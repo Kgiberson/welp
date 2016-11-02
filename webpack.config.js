@@ -1,3 +1,5 @@
+require('babel-register');
+
 const NODE_ENV = process.env.NODE_ENV;
 const dotenv = require('dotenv');
 
