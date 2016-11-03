@@ -5,14 +5,13 @@ import { shallow } from 'enzyme';
 import App from './App';
 import styles from './styles.module.css';
 
-describe('<App />', function() {
+describe('<App />', () => {
 	let wrapper;
 	beforeEach(() => {
-		wrapper = shallow(<App />)
+		wrapper = shallow(<App />);
 	})
-
-	it('has a single wrapper element', () => {
-		expect(wrapper.find(`.${styles.wrapper}`))
+	it('has a Router component', () => {
+		expect(wrapper.find('Router'))
 			.to.have.length(1);
-	});
+	})
 });
