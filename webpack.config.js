@@ -21,7 +21,7 @@ const isDev = NODE_ENV === 'development';
 const isTest = NODE_ENV === 'test';
 
 var config = getConfig({
-	isDev: isDev || isTest,
+	isDev,
 	in: join(src, 'app.js'),
 	out: dest,
 	clearBeforeBuild: true
