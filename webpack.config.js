@@ -90,12 +90,15 @@ config.module.loaders.push({
   loader: 'style!css'
 })
 
+// ENV variables
+
 const dotEnvVars = dotenv.config();
 const environmentEnv = dotenv.config({
 	path: join(root, 'config', `${NODE_ENV}.config.js`),
 	silent: true,
 });
 const envVariables = Object.assign({}, dotEnvVars, environmentEnv);
+
 const defines = 
 	Object.keys(envVariables)
 	.reduce((memo, key) => {
