@@ -2,10 +2,15 @@ import React from 'react';
 import Map, {GoogleApiWrapper} from 'google-maps-react';
 
 export class Container extends React.Component {
+	onReady(mapProps, map) {
+		// when map is ready and mounted
+	}
 	render() {
 		return (
 			<div>
-				Helo from the container
+				<Map 
+					onReady={this.onReady.bind(this)}
+					google={this.props.google} />
 			</div>
 		)
 	}
