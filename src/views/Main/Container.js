@@ -4,8 +4,17 @@ import Map, {GoogleApiWrapper} from 'google-maps-react';
 import { searchNearby } from 'utils/googleApiHelpers';
 
 export class Container extends React.Component {
+	constructor(props) {
+		// super initializes this
+		super(props);
+
+		this.state = {
+			places: [],
+			pagination: null
+		}
+	}
 	onReady(mapProps, map) {
-		// when map is ready and 
+		// when map is ready 
 		const { google } = this.props;
 		const opts = {
 			location: map.center,
@@ -15,6 +24,10 @@ export class Container extends React.Component {
 		searchNearby(google, map, opts)
 			.then((results, pagination) => {
 				// we got some results and a pagination object
+				this.setState({
+					places: results,
+					pagination
+				})
 			}).catch((status, result) => {
 				// there was an error
 			})
@@ -24,7 +37,14 @@ export class Container extends React.Component {
 			<div>
 				<Map 
 					onReady={this.onReady.bind(this)}
-					google={this.props.google} />
+					google={this.props.google} 
+					visible={false} >
+
+					{this.state.places.map(place => {
+						return (<div key={place.id}>{place.name}</div>)
+					})}
+
+				</Map>
 			</div>
 		)
 	}
