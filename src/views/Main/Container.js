@@ -4,8 +4,11 @@ import Map, {GoogleApiWrapper} from 'google-maps-react';
 import { searchNearby } from 'utils/googleApiHelpers';
 
 import Header from 'components/Header/Header';
+import Sidebar from 'componenets/Sidebar/Sidebar';
 
 import styles from './styles.module.css';
+
+
 
 export class Container extends React.Component {
 	constructor(props) {
@@ -48,6 +51,7 @@ export class Container extends React.Component {
 
 					
 					<Header />
+					<Sidebar />
 					<div className={styles.content}>
 						{this.state.places.map(place => {
 							return (<div key={place.id}>{place.name}</div>)
