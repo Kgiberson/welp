@@ -7,7 +7,7 @@ export class Sidebar extends React.Component {
 			<div className={styles.side}>
 				<div className={styles.heading}>
 					<h1>{this.props.title}</h1>
-				<div>
+				</div>
 			</div>
 		)
 	}
