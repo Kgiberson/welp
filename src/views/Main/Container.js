@@ -41,26 +41,37 @@ export class Container extends React.Component {
 			})
 	}
 	render() {
+		let children = null;
+		if (this.props.children) {
+			children = React.cloneElement(this.props.children, {
+				google: this.props.google,
+				places: this.state.places,
+				loaded: this.props.loaded,
+				router: this.conetext.router,
+				onMove: this.onMapMove.bind(this),
+				zoom: this.props.zoom
+			})
+		}
 		return (
+			<div>
 				<Map 
 					google={this.props.google} 
 					onReady={this.onReady.bind(this)}
 					visible={false} 
 					className={styles.wrapper}>
 
-					
 					<Header />
+
 					<Sidebar 
 						title={'Restaurants'}
 						places={this.state.places}
 					/>
 
 					<div className={styles.content}>
-						{this.state.places.map(place => {
-							return (<div key={place.id}>{place.name}</div>)
-						})}
+						{children}
 					</div>
 				</Map>
+			</div>
 		)
 	}
 }
