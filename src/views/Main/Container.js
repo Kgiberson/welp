@@ -59,7 +59,6 @@ export class Container extends React.Component {
 		}
 
 		return (
-      <div>
 				<Map 
 					google={this.props.google} 
 					onReady={this.onReady.bind(this)}
@@ -77,7 +76,6 @@ export class Container extends React.Component {
 						{children}
 					</div>
 				</Map>
-      </div>
 		)
 	}
 }
