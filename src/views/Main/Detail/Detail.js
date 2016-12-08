@@ -13,11 +13,45 @@ export class Detail extends React.Component {
 		}
 	}
 
-	getDetails(map) {}
+	componentDidMount(prevProps) {
+		if (this.props.map &&
+			(prevProps.map !== this.props.map || 
+			prevProps.params.placeId !== this.params.placeId)) {
+				this.getDetails(this.props.map);
+		}
+	}
+
+	getDetails(map) {
+		const {google, params} = this.props;
+		const {placeId} = params;
+
+		this.setState({loading: true}, () => {
+			getDetails(google, map, placeId)
+			.then(place => {
+				const {location} = place.geometry;
+				const loc = {
+					lat: location.lat(),
+					lng: location.lng()
+				}
+
+				this.setState({
+					place, location: loc, loading: false
+				});
+			})
+		});
+	}
 
 	render() {
+		if (this.state.loading) {
+			return (<div className={styles.wrapper}>
+							Loading...
+							</div>)
+		}
+		const {place} = this.state;
 		return (
-			<div className={styles.details}></div>
+			<div className={styles.wrapper}>
+				<h2>{place.name}</h2>
+			</div>
 		)
 	}
 }
