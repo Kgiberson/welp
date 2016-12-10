@@ -50,7 +50,9 @@ export class Detail extends React.Component {
 		const {place} = this.state;
 		return (
 			<div className={styles.wrapper}>
-				<h2>{place.name}</h2>
+				<div className={styles.header}>
+					<h2>{place.name}</h2>
+				</div>
 			</div>
 		)
 	}
