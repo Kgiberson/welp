@@ -7,3 +7,11 @@
 	}
 }
 
+.details {
+	padding: 0 var(--padding);
+	.photoStrip {
+		flex: 1;
+		display: flex;
+		overflow: auto;
+	}
+}
