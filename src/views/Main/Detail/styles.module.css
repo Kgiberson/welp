@@ -7,3 +7,21 @@
 	}
 }
 
+.details {
+	padding: 0 var(--padding);
+
+	::-webkit-scrollbar {
+		width: 0px;
+		background: transparent;
+	}
+
+	.photoStrip {
+		flex: 1;
+		display: flex;
+		overflow: auto;
+
+		img {
+			margin: 0 1px;
+		}
+	}
+}
