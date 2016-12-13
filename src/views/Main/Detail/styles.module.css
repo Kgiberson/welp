@@ -25,3 +25,10 @@
 		}
 	}
 }
+
+.wrapper {
+	overflow-y: scroll;
+	display: flex;
+	margin: 0;
+	padding: 15px;
+}
